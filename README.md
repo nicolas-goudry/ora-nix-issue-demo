@@ -93,7 +93,7 @@ The jobs are expected to fail, but with different outcome:
 
 Look at this [example run][action-run] for a comparison.
 
-> [!INFO]
+> [!NOTE]
 >
 > As an alternative, one could run the action jobs locally using [act][act].
 
