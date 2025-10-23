@@ -1,0 +1,25 @@
+name: Deploy documentation
+
+on:
+  push:
+
+jobs:
+  without-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: DeterminateSystems/nix-installer-action@main
+      - run: |
+          timeout 2m nix-build
+
+  with-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: DeterminateSystems/nix-installer-action@main
+      - run: |
+          timeout 2m nix-build --arg withFix true
